@@ -13,8 +13,8 @@ matrix9_3 = [0 0 -1/12 0 0 ; ...
     0 0 -1/12 0 0 ];
 
 % calculation
-temp = conv2(u,matrix9_3,'valid')/h/h;
-Laplacian(3:end-2,3:end-2)=temp;
+temp = conv2(u,matrix9_3,'valid')/h/h; 
+Laplacian(3:end-2,3:end-2)=temp;  % NOTE: the boundary should be close to 0 enough!
 
 end
 
