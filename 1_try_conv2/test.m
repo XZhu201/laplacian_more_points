@@ -58,3 +58,18 @@ title('f9pt')
 
 % check the difference
 diff9pt = sum(sum( fdel2(2:end-1,2:end-1) - temp ))
+
+
+%% use Nive-point stencil 2  (https://en.wikipedia.org/wiki/Discrete_Laplace_operator)
+matrix9 = [0.25, 0.5, 0.25; 0.5, -3, 0.5; 0.25, 0.5, 0.25];
+
+temp = conv2(f,matrix9,'valid')/dx/dy;
+f9pt = zeros(Lx,Ly);
+f9pt(2:end-1,2:end-1)=temp;
+
+figure;
+mesh(f9pt);
+title('f9pt')
+
+% check the difference
+diff9pt = sum(sum( fdel2(2:end-1,2:end-1) - temp ))
